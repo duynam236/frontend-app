@@ -1,0 +1,39 @@
+<div class="background ">
+    <div>
+        <div class="backButton">
+          <button class="goBack"><i class='fas fa-angle-left'></i></button>
+          <label>Quay lại</label>
+        </div>
+    </div>
+    <div class="contentBackground">
+      <p>Đăng nhập và quản lý ngay hôm nay!</p>
+    </div>
+</div>
+<form novalidate #loginForm="ngForm">
+    <div class="loginContainer">
+        <div class="container">
+          <div class="inputGroup inputUserGroup">
+            <input [(ngModel)]="userLogin.username" name="username" required id="inputUser" type="text" maxlength="99" placeholder="Tài khoản">
+            <div class="errorMessage" *ngIf="loginForm.controls['username']?.errors?.['required'] && loginForm.controls['username'].touched">
+                Tài khoản không hợp lệ
+            </div>
+        </div>
+        <div class="inputGroup inputPasswordGroup">
+            <input [(ngModel)]="userLogin.password" name="password" required id="inputPassword" type="password" maxlength="12" placeholder="Mật khẩu">
+            <div class="errorMessage" *ngIf="loginForm.controls['password']?.errors?.['required'] && loginForm.controls['password'].touched">
+                Mật khẩu không hợp lệ
+            </div>
+        </div>
+        <div>
+          <a routerLink="/reset-password">Quên mật khẩu?</a>
+        </div>
+        <div class="errorMessage" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="buttonGroup">
+            <button id="create" type="button" value="signup" routerLink="/createUser">Đăng ký</button>
+            <button [routerLink]="userUrl" type="button" value="login">Đăng nhập</button>
+        </div>
+        </div>
+    </div>
+</form>
