@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NavbarModule } from 'angular-bootstrap-md';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { HorizontalNavbarComponent } from './shared/component/horizontal-navbar/
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    NavbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
