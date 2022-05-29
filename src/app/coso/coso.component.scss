@@ -1,0 +1,35 @@
+.coso-container {
+  max-width: 80%;
+  box-shadow: 5px 10px 15px #888888;
+  // display: flex;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 5px;
+}
+
+h2 {
+  margin-left: 12px;
+  color: red;
+}
+
+.add {
+  position: absolute;
+  right: 12px;
+  top: 0.45rem;
+  background-color: #04aa6d;
+  color: #ffff;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.table-coso {
+  max-width: 96%;
+  margin: auto;
+}

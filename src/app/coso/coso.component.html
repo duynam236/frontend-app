@@ -1,0 +1,97 @@
+<div class="coso-container">
+  <h2>DANH SÁCH CƠ SỞ</h2>
+  <div>
+    <button mat-raised-button (click)="openDialog()" class="add">
+      Thêm Cơ Sở
+    </button>
+  </div>
+
+  <div class="table-coso" style="margin-top: 12px auto">
+    <mat-form-field appearance="standard">
+      <mat-label>Tìm Kiếm</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Mia"
+        #input
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="ten">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tên Cơ Sở</th>
+          <td mat-cell *matCellDef="let row">{{ row.ten }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="diachi">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Địa Chỉ</th>
+          <td mat-cell *matCellDef="let row">{{ row.diachi }}</td>
+        </ng-container>
+
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="sdt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Số Điện Thoại
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.sdt }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="loaihinh">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Loại Hình</th>
+          <td mat-cell *matCellDef="let row">{{ row.loaihinh }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quanhuyenid.ten">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quận/Huyện</th>
+          <td mat-cell *matCellDef="let row">{{ row.quanhuyenid.ten }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="xaphuongid.ten">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Xã Phường</th>
+          <td mat-cell *matCellDef="let row">{{ row.xaphuongid.ten }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="chungnhan.hieuluc">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Chứng Nhận</th>
+          <td mat-cell *matCellDef="let row">{{ row.chungnhan.hieuluc }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editCoso(row)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteCoso(row.id)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>
