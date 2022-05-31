@@ -1,64 +1,82 @@
 .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
-  height: 100vh;
-  background-color: #2ECC71;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #2ecc71;
 }
 
-.backButton {
+.back-button {
   position: absolute;
   top: 5%;
   left: 5%;
 }
 
-.goBack {
+.go-back {
   width: 40px;
   height: 40px;
-  background-color: #2ECC71;
+  background-color: #2ecc71;
   border: 5px solid white;
   border-radius: 50%;
 }
 
-.backButton i {
+.back-button i {
   font-size: 20px;
   color: white;
 }
 
-.backButton > label {
+.back-button > label {
+  font-family: inherit;
   font-size: 30px;
   color: white;
   margin: auto 20px;
 }
 
-.contentBackground {
+.content-background {
   position: absolute;
   top: 20%;
-  left: 5%;
+  left: 3%;
   width: 40%;
   height: 10%;
 }
 
-.contentBackground > p {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.content-background > p {
+  font-family: inherit;
   color: white;
   font-size: 2.5em;
   line-height: 1.5em;
 }
 
+#img-login {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 45%;
+  z-index: 1;
+}
+
+#img-login img {
+  width: 100%;
+}
+
 form {
   width: 100%;
-  height: 90%;
-  font-family: 'Source Sans Pro', sans-serif;
+  height: 98%;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
 }
 
-.loginContainer {
+.login-container {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   display: block;
   width: 100%;
-  height: unset;
   max-width: 50%;
   background-color: white;
   margin: auto;
@@ -69,16 +87,17 @@ form {
 }
 
 .container {
-margin: 30% auto;
+  margin: 30% auto;
 }
 
-form .inputGroup {
+form .input-group {
   margin: 0 0 2rem;
   padding: 0;
   position: relative;
 }
 
-#inputUser::placeholder, #inputPassword::placeholder {
+#input-user::placeholder,
+#input-password::placeholder {
   font-size: 1.5em;
 }
 
@@ -131,7 +150,7 @@ form button {
   font-weight: 300;
 }
 
-.buttonGroup {
+.button-group {
   width: 350px;
   margin: 100px auto;
 }
@@ -160,7 +179,7 @@ form button:active {
   background-color: rgb(39, 170, 39);
 }
 
-.errorMessage {
+.error-message {
   font-style: italic;
   color: red;
   margin: 2%;

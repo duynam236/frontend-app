@@ -1,6 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarModule } from 'angular-bootstrap-md';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,8 +33,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    redirectTo: 'home',
+    pathMatch: 'full'
+
   },
   {
     path: 'home',
@@ -82,13 +85,13 @@ const routes: Routes = [
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    FormsModule,
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NavbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

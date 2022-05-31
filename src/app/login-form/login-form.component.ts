@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/users/user';
-
+declare var require: any;
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -8,6 +8,7 @@ import { User } from '../models/users/user';
 })
 export class LoginFormComponent implements OnInit {
 
+  // public LOGO = require("./Presentation.jpg");
   // routeLink to listUserComponent
   public userUrl!: string;
   // Message
