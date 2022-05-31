@@ -1,0 +1,35 @@
+<h1 mat-dialog-title style="color: red">Lên Kế Hoạch Thanh Tra</h1>
+<div mat-dialog-content>
+  <form [formGroup]="thanhtraForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày Bắt Đầu</mat-label>
+      <input formControlName="ngayBatDau" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày Kết Thúc</mat-label>
+      <input formControlName="ngayKetThuc" matInput [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ID Cơ Sở</mat-label>
+      <input
+        formControlName="coSoId"
+        type="number"
+        matInput
+        placeholder="ID Cơ Sở"
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Đóng</button>
+  <button mat-raised-button color="primary" (click)="addThanhTra()">
+    {{ actionBTN }}
+  </button>
+</div>

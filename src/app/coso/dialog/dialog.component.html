@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Thêm Cơ Sở Vào Danh Sách</h1>
+<h1 mat-dialog-title style="color: red">Thêm Cơ Sở Vào Danh Sách</h1>
 <div mat-dialog-content>
   <form [formGroup]="formcoso">
     <mat-form-field appearance="outline">
@@ -27,12 +27,22 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Quận/Huyện</mat-label>
-      <input formControlName="quanhuyen" matInput placeholder="Quận/Huyện" />
+      <input
+        type="number"
+        formControlName="quanhuyen"
+        matInput
+        placeholder="Quận/Huyện"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Xã/Phường</mat-label>
-      <input formControlName="xaphuong" matInput placeholder="Xã/Phường" />
+      <input
+        type="number"
+        formControlName="xaphuong"
+        matInput
+        placeholder="Xã/Phường"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">

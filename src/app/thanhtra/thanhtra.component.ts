@@ -1,26 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../service/api.service';
-import { DialogComponent } from './dialog/dialog.component';
+import { TtdialogComponent } from './ttdialog/ttdialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-coso',
-  templateUrl: './coso.component.html',
-  styleUrls: ['./coso.component.scss'],
+  selector: 'app-thanhtra',
+  templateUrl: './thanhtra.component.html',
+  styleUrls: ['./thanhtra.component.scss'],
 })
-export class CosoComponent {
+export class ThanhtraComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'ten',
-    'diachi',
-    'sdt',
-    'loaihinh',
-    'quanhuyenid.ten',
-    'xaphuongid.ten',
-    'chungnhan.hieuluc',
+    'ngayBatDau',
+    'ngayKetThuc',
+    'coSoId.ten',
+    'coSoId.diachi',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -28,60 +25,59 @@ export class CosoComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  constructor(private ttdialog: MatDialog, private api: ApiService) {}
 
-  openDialog() {
-    this.dialog
-      .open(DialogComponent, {
-        width: '40%',
+  ngOnInit(): void {
+    this.getAllThanhTra();
+  }
+  openttDialog() {
+    this.ttdialog
+      .open(TtdialogComponent, {
+        width: '30%',
       })
       .afterClosed()
       .subscribe((val) => {
-        if (val === 'Thêm cơ sở') {
-          this.getAllCoso();
+        if (val === 'Save') {
+          this.getAllThanhTra();
         }
       });
   }
 
-  ngOnInit(): void {
-    this.getAllCoso();
-  }
-
-  getAllCoso() {
-    this.api.getCoso().subscribe({
+  getAllThanhTra() {
+    this.api.getThanhTra().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        alert('Error');
+        alert('Lỗi khi lấy danh sách thanh tra');
       },
     });
   }
 
-  editCoso(row: any) {
-    this.dialog
-      .open(DialogComponent, {
-        width: '40%',
+  editThanhTra(row: any) {
+    this.ttdialog
+      .open(TtdialogComponent, {
+        width: '30%',
         data: row,
       })
       .afterClosed()
       .subscribe((val) => {
         if (val === 'Update') {
-          this.getAllCoso();
+          this.getAllThanhTra();
         }
       });
   }
 
-  deleteCoso(id: number) {
-    this.api.deleteCoso(id).subscribe({
+  deleteThanhTra(id: number) {
+    this.api.deleteThanhTra(id).subscribe({
       next: (res) => {
-        alert('Deleted succesfully');
-        this.getAllCoso();
+        alert('deleted kế hoạch tranh tra thành công');
+        this.getAllThanhTra();
       },
-      error: (res) => {
-        alert('Erorr while deleting');
+      error: () => {
+        alert('Lỗi Khi xóa kế hoạch thanh tra');
       },
     });
   }

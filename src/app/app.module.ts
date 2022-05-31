@@ -23,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ThanhtraComponent } from './thanhtra/thanhtra.component';
+import { TtdialogComponent } from './thanhtra/ttdialog/ttdialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const routes: Routes = [
   {
@@ -46,6 +50,10 @@ const routes: Routes = [
     path: 'coso',
     component: CosoComponent,
   },
+  {
+    path: 'thanhtra',
+    component: ThanhtraComponent,
+  },
 ];
 
 @NgModule({
@@ -58,6 +66,8 @@ const routes: Routes = [
     HorizontalNavbarComponent,
     CosoComponent,
     DialogComponent,
+    ThanhtraComponent,
+    TtdialogComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -77,6 +87,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

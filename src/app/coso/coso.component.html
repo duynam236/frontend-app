@@ -1,5 +1,5 @@
 <div class="coso-container">
-  <h2>DANH SÁCH CƠ SỞ</h2>
+  <h1>DANH SÁCH CƠ SỞ</h1>
   <div>
     <button mat-raised-button (click)="openDialog()" class="add">
       Thêm Cơ Sở
@@ -19,25 +19,21 @@
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-        <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
           <td mat-cell *matCellDef="let row">{{ row.id }}</td>
         </ng-container>
 
-        <!-- Progress Column -->
         <ng-container matColumnDef="ten">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Tên Cơ Sở</th>
           <td mat-cell *matCellDef="let row">{{ row.ten }}</td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="diachi">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Địa Chỉ</th>
           <td mat-cell *matCellDef="let row">{{ row.diachi }}</td>
         </ng-container>
 
-        <!-- Fruit Column -->
         <ng-container matColumnDef="sdt">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Số Điện Thoại
