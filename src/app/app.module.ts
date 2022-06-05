@@ -16,6 +16,7 @@ import { CosoComponent } from './coso/coso.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './coso/dialog/dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -27,6 +28,7 @@ import { ThanhtraComponent } from './thanhtra/thanhtra.component';
 import { TtdialogComponent } from './thanhtra/ttdialog/ttdialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TempLoginComponent } from './temp-login/temp-login.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,10 @@ const routes: Routes = [
     path: 'thanhtra',
     component: ThanhtraComponent,
   },
+  {
+    path: 'tempLogin',
+    component: TempLoginComponent,
+  },
 ];
 
 @NgModule({
@@ -68,6 +74,7 @@ const routes: Routes = [
     DialogComponent,
     ThanhtraComponent,
     TtdialogComponent,
+    TempLoginComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -78,6 +85,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

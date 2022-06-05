@@ -16,8 +16,8 @@ export class ThanhtraComponent implements OnInit {
     'id',
     'ngayBatDau',
     'ngayKetThuc',
-    'coSoId.ten',
-    'coSoId.diachi',
+    'coSo.ten',
+    'coSo.diaChi',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -46,7 +46,7 @@ export class ThanhtraComponent implements OnInit {
   getAllThanhTra() {
     this.api.getThanhTra().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },

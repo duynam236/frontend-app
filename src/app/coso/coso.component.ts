@@ -15,12 +15,12 @@ export class CosoComponent {
   displayedColumns: string[] = [
     'id',
     'ten',
-    'diachi',
+    'diaChi',
     'sdt',
-    'loaihinh',
-    'quanhuyenid.ten',
-    'xaphuongid.ten',
-    'chungnhan.hieuluc',
+    'loaiHinh',
+    'huyenQuan.ten',
+    'xaPhuong.ten',
+    'chungNhan.hieuLuc',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -50,7 +50,8 @@ export class CosoComponent {
   getAllCoso() {
     this.api.getCoso().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = new MatTableDataSource(res.data);
+        console.log(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
