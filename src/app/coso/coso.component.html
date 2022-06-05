@@ -30,9 +30,9 @@
           <td mat-cell *matCellDef="let row">{{ row.ten }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="diachi">
+        <ng-container matColumnDef="diaChi">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Địa Chỉ</th>
-          <td mat-cell *matCellDef="let row">{{ row.diachi }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.diaChi }}</td>
         </ng-container>
 
         <ng-container matColumnDef="sdt">
@@ -42,24 +42,26 @@
           <td mat-cell *matCellDef="let row">{{ row.sdt }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="loaihinh">
+        <ng-container matColumnDef="loaiHinh">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Loại Hình</th>
-          <td mat-cell *matCellDef="let row">{{ row.loaihinh }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.loaiHinh }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="quanhuyenid.ten">
+        <ng-container matColumnDef="huyenQuan.ten">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Quận/Huyện</th>
-          <td mat-cell *matCellDef="let row">{{ row.quanhuyenid.ten }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.huyenQuan.ten }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="xaphuongid.ten">
+        <ng-container matColumnDef="xaPhuong.ten">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Xã Phường</th>
-          <td mat-cell *matCellDef="let row">{{ row.xaphuongid.ten }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.xaPhuong.ten }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="chungnhan.hieuluc">
+        <ng-container matColumnDef="chungNhan.hieuLuc">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Chứng Nhận</th>
-          <td mat-cell *matCellDef="let row">{{ row.chungnhan.hieuluc }}</td>
+          <td mat-cell *matCellDef="let row">
+            {{ row.chungNhan.hieuLuc }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="action">

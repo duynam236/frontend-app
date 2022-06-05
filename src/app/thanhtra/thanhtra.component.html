@@ -35,23 +35,27 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Ngày Kết Thúc
             </th>
-            <td mat-cell *matCellDef="let row">{{row.ngayKetThuc | date}</td>
+            <td mat-cell *matCellDef="let row">{{ row.ngayKetThuc | date }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="coSoId.ten">
+          <ng-container matColumnDef="coSo.ten">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Tên Cơ Sở</th>
-            <td mat-cell *matCellDef="let row">{{ row.coSoId.ten }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.coSo.ten }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="coSoId.diachi">
+          <ng-container matColumnDef="coSo.diaChi">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Địa Chỉ</th>
-            <td mat-cell *matCellDef="let row">{{ row.coSoId.diachi }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.coSo.diaChi }}</td>
           </ng-container>
 
           <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
             <td mat-cell *matCellDef="let row">
-              <button mat-raised-button editThanhTra(row) color="primary">
+              <button
+                mat-raised-button
+                (click)="editThanhTra(row)"
+                color="primary"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
               <button
