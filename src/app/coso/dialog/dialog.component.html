@@ -3,22 +3,22 @@
   <form [formGroup]="formcoso">
     <mat-form-field appearance="outline">
       <mat-label>Tên Cơ Sở</mat-label>
-      <input formControlName="tencoso" matInput placeholder="Tên Cơ Sở" />
+      <input formControlName="ten" matInput placeholder="Tên Cơ Sở" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Địa Chỉ</mat-label>
-      <input formControlName="diachi" matInput placeholder="Địa Chỉ" />
+      <input formControlName="diaChi" matInput placeholder="Địa Chỉ" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Số Điện Thoại</mat-label>
-      <input formControlName="sdt" matInput placeholder="Địa Chỉ" />
+      <input formControlName="sdt" matInput placeholder="Số Điện Thoại" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Loại Hình</mat-label>
-      <mat-select formControlName="loaihinh" placeholder="Loại Hình">
+      <mat-select formControlName="loaiHinh" placeholder="Loại Hình">
         <mat-option value="Sản Xuất">Sản Xuất</mat-option>
         <mat-option value="Dịch Vụ">Dịch Vụ</mat-option>
         <mat-option value="Sản Xuất và Dịch Vụ">Sản Xuất và Dịch Vụ</mat-option>
@@ -27,33 +27,18 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Quận/Huyện</mat-label>
-      <input
-        type="number"
-        formControlName="quanhuyen"
-        matInput
-        placeholder="Quận/Huyện"
-      />
+      <input formControlName="quanHuyenId" matInput placeholder="Quận/Huyện" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Xã/Phường</mat-label>
-      <input
-        type="number"
-        formControlName="xaphuong"
-        matInput
-        placeholder="Xã/Phường"
-      />
+      <input formControlName="xaPhuongId" matInput placeholder="Xã/Phường" />
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Chứng Nhận</mat-label>
-      <input
-        type="number"
-        formControlName="chungnhan"
-        matInput
-        placeholder="Chứng Nhận"
-      />
-    </mat-form-field>
+      <input formControlName="chungNhanId" matInput placeholder="Chứng Nhận" />
+    </mat-form-field> -->
   </form>
 </div>
 
