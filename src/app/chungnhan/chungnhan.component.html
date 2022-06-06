@@ -42,6 +42,11 @@
             <td mat-cell *matCellDef="let row">{{ row.coSo.loaiHinh }}</td>
           </ng-container>
 
+          <ng-container matColumnDef="coSo.ten">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tên Cơ Sở</th>
+            <td mat-cell *matCellDef="let row">{{ row.coSo.ten }}</td>
+          </ng-container>
+
           <ng-container matColumnDef="coSo.sdt">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Số Điện Thoại
