@@ -26,7 +26,7 @@ export class DialogComponent implements OnInit {
       diaChi: ['', Validators.required],
       sdt: ['', Validators.required],
       loaiHinh: ['', Validators.required],
-      quanHuyenId: ['', Validators.required],
+      huyenQuanId: ['', Validators.required],
       xaPhuongId: ['', Validators.required],
       chungNhanId: ['', Validators.required],
     });
@@ -37,7 +37,7 @@ export class DialogComponent implements OnInit {
       this.formcoso.controls['diaChi'].setValue(this.editData.diaChi);
       this.formcoso.controls['sdt'].setValue(this.editData.sdt);
       this.formcoso.controls['loaiHinh'].setValue(this.editData.loaiHinh);
-      this.formcoso.controls['quanHuyenId'].setValue(this.editData.quanHuyenId);
+      this.formcoso.controls['huyenQuanId'].setValue(this.editData.huyenQuanId);
       this.formcoso.controls['xaPhuongId'].setValue(this.editData.xaPhuongId);
       this.formcoso.controls['chungNhanId'].setValue(this.editData.chungNhanId);
     }
