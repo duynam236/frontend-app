@@ -1,42 +1,43 @@
 <div class="background ">
     <div>
         <div class="back-button">
-          <button class="go-back" [routerLink]="['/home']" routerLinkActive="router-link-active" ><i class='fas fa-angle-left'></i></button>
-          <label>Quay lại</label>
+            <button class="go-back" [routerLink]="['/home']" routerLinkActive="router-link-active"><i
+                    class='fas fa-angle-left'></i></button>
+            <label>Quay lại</label>
         </div>
     </div>
     <div class="content-background">
-      <p>Đăng nhập và quản lý ngay hôm nay!</p>
+        <p>Đăng nhập và quản lý ngay hôm nay!</p>
     </div>
     <div id="img-login">
         <img [src]="'assets/images/PNG/Presentation.png'" alt="Presentation">
     </div>
 </div>
-<form novalidate #loginForm="ngForm">
+<form novalidate [formGroup]="loginForm" (submit)="onSubmit()">
     <div class="login-container">
         <div class="container">
-          <div class="input-group">
-            <input [(ngModel)]="userLogin.username" name="username" required id="input-user" type="text" maxlength="99" placeholder="Tài khoản">
-            <div class="error-message" *ngIf="loginForm.controls['username']?.errors?.['required'] && loginForm.controls['username'].touched">
-                Tài khoản không hợp lệ
+            <div class="input-group">
+                <input formControlName="username" required id="input-user" type="text"
+                    maxlength="99" placeholder="Tài khoản">
+                <div class="error-message"
+                *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+                    Tài khoản không hợp lệ
+                </div>
             </div>
-        </div>
-        <div class="input-group">
-            <input [(ngModel)]="userLogin.password" name="password" required id="input-password" type="password" maxlength="12" placeholder="Mật khẩu">
-            <div class="error-message" *ngIf="loginForm.controls['password']?.errors?.['required'] && loginForm.controls['password'].touched">
-                Mật khẩu không hợp lệ
+            <div class="input-group">
+                <input formControlName="password" required id="input-password" type="password"
+                    maxlength="12" placeholder="Mật khẩu">
+                <div class="error-message"
+                *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                    Mật khẩu không hợp lệ
+                </div>
             </div>
-        </div>
-        <div>
-          <a routerLink="/reset-password">Quên mật khẩu?</a>
-        </div>
-        <div class="error-message" *ngIf="message">
-            {{ message }}
-        </div>
-        <div class="button-group">
-            <button id="create" type="button" value="signup" routerLink="/createUser">Đăng ký</button>
-            <button [routerLink]="userUrl" type="button" value="login">Đăng nhập</button>
-        </div>
+            <div class="error-message-login" *ngIf="message">
+                {{ message }}
+            </div>
+            <div class="button-group">
+                <button type="submit" value="login">Đăng nhập</button>
+            </div>
         </div>
     </div>
 </form>

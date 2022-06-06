@@ -1,8 +1,5 @@
 export class User {
-    id!: string;
-      fullname!: string;
-      username!: string;
-      password!: string;
-      checkDelete!: boolean;
-  }
-  
+  username!: string;
+  password!: string;
+  diaBan!: string;
+}

@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ResetPasswordFormComponent } from './reset-password-form/reset-password-form.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
@@ -30,7 +29,6 @@ import { ThanhtraComponent } from './thanhtra/thanhtra.component';
 import { TtdialogComponent } from './thanhtra/ttdialog/ttdialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { TempLoginComponent } from './temp-login/temp-login.component';
 
 const routes: Routes = [
   {
@@ -48,20 +46,12 @@ const routes: Routes = [
     component: LoginFormComponent,
   },
   {
-    path: 'reset-password',
-    component: ResetPasswordFormComponent,
-  },
-  {
     path: 'coso',
     component: CosoComponent,
   },
   {
     path: 'thanhtra',
     component: ThanhtraComponent,
-  },
-  {
-    path: 'tempLogin',
-    component: TempLoginComponent,
   },
 ];
 
@@ -70,14 +60,12 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     LoginFormComponent,
-    ResetPasswordFormComponent,
     FooterComponent,
     HorizontalNavbarComponent,
     CosoComponent,
     DialogComponent,
     ThanhtraComponent,
     TtdialogComponent,
-    TempLoginComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
