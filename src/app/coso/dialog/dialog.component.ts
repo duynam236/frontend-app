@@ -18,26 +18,28 @@ export class DialogComponent implements OnInit {
     private dialogRef: MatDialogRef<DialogComponent>
   ) {}
 
+  quanHuyen: any = this.api.getQuanHuyen();
+
   ngOnInit(): void {
     this.formcoso = this.formbuilder.group({
-      tencoso: ['', Validators.required],
-      diachi: ['', Validators.required],
+      ten: ['', Validators.required],
+      diaChi: ['', Validators.required],
       sdt: ['', Validators.required],
-      loaihinh: ['', Validators.required],
-      quanhuyen: ['', Validators.required],
-      xaphuong: ['', Validators.required],
-      chungnhan: ['', Validators.required],
+      loaiHinh: ['', Validators.required],
+      quanHuyenId: ['', Validators.required],
+      xaPhuongId: ['', Validators.required],
+      chungNhanId: ['', Validators.required],
     });
 
     if (this.editData) {
       this.actionBtn = 'Update';
-      this.formcoso.controls['tencoso'].setValue(this.editData.tencoso);
-      this.formcoso.controls['diachi'].setValue(this.editData.diachi);
+      this.formcoso.controls['ten'].setValue(this.editData.ten);
+      this.formcoso.controls['diaChi'].setValue(this.editData.diaChi);
       this.formcoso.controls['sdt'].setValue(this.editData.sdt);
-      this.formcoso.controls['loaihinh'].setValue(this.editData.loaihinh);
-      this.formcoso.controls['quanhuyen'].setValue(this.editData.quanhuyen);
-      this.formcoso.controls['xaphuong'].setValue(this.editData.xaphuong);
-      this.formcoso.controls['chungnhan'].setValue(this.editData.chungnhan);
+      this.formcoso.controls['loaiHinh'].setValue(this.editData.loaiHinh);
+      this.formcoso.controls['quanHuyenId'].setValue(this.editData.quanHuyenId);
+      this.formcoso.controls['xaPhuongId'].setValue(this.editData.xaPhuongId);
+      this.formcoso.controls['chungNhanId'].setValue(this.editData.chungNhanId);
     }
   }
   addCoSo() {
@@ -46,6 +48,7 @@ export class DialogComponent implements OnInit {
         this.api.postCoso(this.formcoso.value).subscribe({
           next: (res) => {
             alert('Thêm Cơ sở thành công');
+            console.log(this.quanHuyen);
             this.formcoso.reset();
             this.dialogRef.close('Thêm Cơ Sở');
           },

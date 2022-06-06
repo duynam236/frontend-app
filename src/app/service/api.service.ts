@@ -79,4 +79,40 @@ export class ApiService {
       withCredentials: true,
     });
   }
+
+  postChungNhan(data: any) {
+    return this.http.post<any>('http://localhost:4040/chungNhan/', data, {
+      withCredentials: true,
+    });
+  }
+
+  putChungNhan(data: any, id: number) {
+    return this.http.put<any>('http://localhost:4040/chungNhan/' + id, data, {
+      withCredentials: true,
+    });
+  }
+
+  getChungNhan() {
+    return this.http.get<any>('http://localhost:4040/chungNhan/', {
+      withCredentials: true,
+    });
+  }
+
+  deleteChungNhan(id: number) {
+    return this.http.delete<any>('http://localhost:4040/chungNhan/' + id, {
+      withCredentials: true,
+    });
+  }
+
+  getQuanHuyen() {
+    return this.http.get<any>('http://localhost:4040/huyenQuan?pageSize=99', {
+      withCredentials: true,
+    });
+  }
+
+  getXaPhuong() {
+    return this.http.get<any>('http://localhost:4040/xaPhuong?pageSize=99', {
+      withCredentials: true,
+    });
+  }
 }

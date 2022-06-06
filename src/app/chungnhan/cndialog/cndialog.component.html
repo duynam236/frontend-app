@@ -1,0 +1,38 @@
+<h1 mat-dialog-title style="color: red">Lên Kế Hoạch Thanh Tra</h1>
+<div mat-dialog-content>
+  <form [formGroup]="chungnhanForm">
+    <mat-form-field appearance="outline">
+      <mat-label>ID Cơ Sở</mat-label>
+      <input formControlName="id" type="number" matInput placeholder="ID" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày Cấp</mat-label>
+      <input formControlName="ngayCap" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày Hết Hạn</mat-label>
+      <input formControlName="ngayHetHan" matInput [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Hiệu Lực</mat-label>
+      <mat-select formControlName="hieuLuc" placeholder="Hiệu Lực">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="0">0</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Đóng</button>
+  <button mat-raised-button color="primary" (click)="addChungNhan()">
+    {{ actionBTN }}
+  </button>
+</div>

@@ -29,6 +29,8 @@ import { ThanhtraComponent } from './thanhtra/thanhtra.component';
 import { TtdialogComponent } from './thanhtra/ttdialog/ttdialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ChungnhanComponent } from './chungnhan/chungnhan.component';
+import { CndialogComponent } from './chungnhan/cndialog/cndialog.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,10 @@ const routes: Routes = [
     path: 'thanhtra',
     component: ThanhtraComponent,
   },
+  {
+    path: 'chungnhan',
+    component: ChungnhanComponent,
+  },
 ];
 
 @NgModule({
@@ -66,6 +72,8 @@ const routes: Routes = [
     DialogComponent,
     ThanhtraComponent,
     TtdialogComponent,
+    ChungnhanComponent,
+    CndialogComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

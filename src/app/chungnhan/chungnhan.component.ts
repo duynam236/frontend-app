@@ -1,26 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../service/api.service';
-import { DialogComponent } from './dialog/dialog.component';
+import { CndialogComponent } from './cndialog/cndialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-coso',
-  templateUrl: './coso.component.html',
-  styleUrls: ['./coso.component.scss'],
+  selector: 'app-chungnhan',
+  templateUrl: './chungnhan.component.html',
+  styleUrls: ['./chungnhan.component.scss'],
 })
-export class CosoComponent {
-  displayedColumns1: string[] = [
+export class ChungnhanComponent implements OnInit {
+  constructor(private cndialog: MatDialog, private api: ApiService) {}
+
+  displayedColumns: string[] = [
     'id',
-    'ten',
-    'diaChi',
-    'sdt',
-    'loaiHinh',
-    'huyenQuan.ten',
-    'xaPhuong.ten',
-    'chungNhan.hieuLuc',
+    'ngayCap',
+    'ngayHetHan',
+    'coSo.loaiHinh',
+    'coSo.sdt',
+    'hieuLuc',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -28,62 +28,58 @@ export class CosoComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  ngOnInit(): void {
+    this.getAllChungNhan();
+  }
 
-  openDialog() {
-    this.dialog
-      .open(DialogComponent, {
-        width: '40%',
+  opencnDialog() {
+    this.cndialog
+      .open(CndialogComponent, {
+        width: '30%',
       })
       .afterClosed()
       .subscribe((val) => {
-        if (val === 'Thêm cơ sở') {
-          this.getAllCoso();
+        if (val === 'Save') {
+          this.getAllChungNhan();
         }
       });
   }
 
-  ngOnInit(): void {
-    this.getAllCoso();
-  }
-
-  getAllCoso() {
-    this.api.getCoso().subscribe({
+  getAllChungNhan() {
+    this.api.getChungNhan().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
-        console.log(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        alert('Error');
+        alert('Lỗi khi lấy danh sách chứng nhận');
       },
     });
-    console.log(this.dataSource)
   }
 
-  editCoso(row: any) {
-    this.dialog
-      .open(DialogComponent, {
-        width: '40%',
+  editChungNhan(row: any) {
+    this.cndialog
+      .open(CndialogComponent, {
+        width: '30%',
         data: row,
       })
       .afterClosed()
       .subscribe((val) => {
         if (val === 'Update') {
-          this.getAllCoso();
+          this.getAllChungNhan();
         }
       });
   }
 
-  deleteCoso(id: number) {
-    this.api.deleteCoso(id).subscribe({
+  deleteChungNhan(id: number) {
+    this.api.deleteChungNhan(id).subscribe({
       next: (res) => {
-        alert('Deleted succesfully');
-        this.getAllCoso();
+        alert('deleted chung Nhan thành công');
+        this.getAllChungNhan();
       },
-      error: (res) => {
-        alert('Erorr while deleting');
+      error: () => {
+        alert('Lỗi Khi xóa chứng nhạn thanh tra');
       },
     });
   }
