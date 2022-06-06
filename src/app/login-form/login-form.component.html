@@ -26,7 +26,7 @@
             </div>
             <div class="input-group">
                 <input formControlName="password" required id="input-password" type="password"
-                    maxlength="12" placeholder="Mật khẩu">
+                    maxlength="40" placeholder="Mật khẩu">
                 <div class="error-message"
                 *ngIf="!password?.valid && (password?.dirty || password?.touched)">
                     Mật khẩu không hợp lệ

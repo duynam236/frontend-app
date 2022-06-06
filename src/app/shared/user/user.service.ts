@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 import { User } from 'src/app/models/users/user';
-import { userLogined } from 'src/app/models/listUser/userLogined.model';
+import { loginedUser } from 'src/app/models/listUser/loginedUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { userLogined } from 'src/app/models/listUser/userLogined.model';
 export class UserService {
 
 
-  private userLoginedSource = new BehaviorSubject(userLogined);
+  private userLoginedSource = new BehaviorSubject(loginedUser);
   public userLoginedCurrent = this.userLoginedSource.asObservable();
 
   // Update listUser for all component
@@ -19,12 +19,12 @@ export class UserService {
     this.userLoginedSource.next(userLogined);
   }
 
-  private statusLoginSource = new BehaviorSubject(false);
-  public statusLoginCurrent = this.statusLoginSource.asObservable();
+  private checkLoginSource = new BehaviorSubject(false);
+  public checkLoginCurrent = this.checkLoginSource.asObservable();
 
   // Update statusUrl for all component
-  public changeUrl(check: boolean) {
-    this.statusLoginSource.next(check);
+  public changeStatus(check: boolean) {
+    this.checkLoginSource.next(check);
   }
 
   constructor() { }

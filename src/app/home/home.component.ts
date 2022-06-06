@@ -1,9 +1,8 @@
+import { UserService } from './../shared/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../service/auth.service';
-import { ApiService } from '../service/api.service';
-import { UserService } from '../shared/user/user.service';
 
 import { User } from '../models/users/user';
 
@@ -15,7 +14,7 @@ import { User } from '../models/users/user';
 export class HomeComponent implements OnInit {
 
   public users!: User[];
-  private checkLogin = false;
+  private checkLogin!: boolean;
 
   loginUser: any = {
     username: 'chuyenvien01',
@@ -24,13 +23,14 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private auth: AuthService, 
-    private api: ApiService,
-    private userService: UserService
+    private auth: AuthService,
+    private userService : UserService
   ) { }
 
   ngOnInit(): void {
     this.login();
+    this.userService.checkLoginCurrent.subscribe(check => this.checkLogin = check);
+    console.log(this.checkLogin)
   }
 
   private login() {

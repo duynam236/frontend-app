@@ -21,13 +21,17 @@ export class LoginFormComponent implements OnInit {
   // Message
   public message!: string;
   // Status of event at listUserComponent
-  public statusUrl!: string;
+  public checkLogin = false;
   public listUser!: User[];
-  public userLogined!: User;
+  public userLogined = {
+    username: '',
+    password: '',
+    diaBan: {}
+  };
   public userLogin: User = {
     username: '',
     password: '',
-    diaBan: '',
+    diaBan: {},
   }
 
   constructor(
@@ -39,6 +43,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.userLoginedCurrent.subscribe(user => this.userLogined = user);
+    this.userService.checkLoginCurrent.subscribe(check => this.checkLogin = check)
     this.getAllUser();
 
     this.loginForm = this.formBuilder.group({
@@ -78,7 +83,9 @@ export class LoginFormComponent implements OnInit {
     if (index >= 0) {
       // Check password of log in user corresponding to username
       if (this.passwordLogin === this.listUser[index].password) {
-        this.userService.changeListUser(this.userLogin);
+        this.checkLogin = true;
+        this.userService.changeStatus(this.checkLogin);
+        this.userService.changeListUser(this.listUser[index]);
         // Go to listUser screen
         this.userUrl = "/home";
         this.router.navigateByUrl(this.userUrl);

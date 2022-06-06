@@ -51,7 +51,6 @@ export class CosoComponent {
     this.api.getCoso().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
-        console.log(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -59,7 +58,6 @@ export class CosoComponent {
         alert('Error');
       },
     });
-    console.log(this.dataSource)
   }
 
   editCoso(row: any) {
