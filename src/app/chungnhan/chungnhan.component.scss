@@ -1,0 +1,42 @@
+.head {
+  display: flex;
+}
+.head h1 {
+  color: red;
+  font-family: “Arial Black”, Gadget, sans-serif;
+  font-weight: bolder;
+  flex: 1;
+  padding: 12px;
+}
+
+.cn-container {
+  max-width: 80%;
+  box-shadow: 5px 10px 15px #888888;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 5px;
+}
+
+.head button {
+  background-color: #04aa6d;
+  color: #fff;
+  position: absolute;
+  right: 12px;
+  top: 0.45rem;
+  flex: 1;
+  margin: 10px 12px 0px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.cn-table {
+  max-width: 96%;
+  margin: auto;
+}
