@@ -19,6 +19,7 @@ export class ChungnhanComponent implements OnInit {
     'ngayCap',
     'ngayHetHan',
     'coSo.loaiHinh',
+    'coSo.ten',
     'coSo.sdt',
     'hieuLuc',
     'action',
