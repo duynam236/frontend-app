@@ -12,4 +12,10 @@ export class AuthService {
       withCredentials: true,
     });
   }
+
+  logout(user: any) {
+    return this.http.post('http://localhost:4040/logout', user, {
+      withCredentials: true,
+    })
+  }
 }

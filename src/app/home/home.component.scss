@@ -14,3 +14,28 @@ body {
   width: 100%;
   bottom: 0;
 }
+
+.img-home>img {
+  width: 1060px;
+  height: auto;
+}
+
+.img-home-two {
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
+}
+
+.img-home-two>img {
+  width: 400px;
+}
+
+.content {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}
+
+.content>p {
+  font-size: 100px;
+}

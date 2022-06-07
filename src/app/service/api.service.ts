@@ -20,14 +20,14 @@ export class ApiService {
     });
   }
 
-  public putUser(data: any, id: number) {
-    return this.http.put<any>('http://localhost:4040/nguoiDung/' + id, data, {
+  public putUser(data: any, username: string) {
+    return this.http.put<any>('http://localhost:4040/nguoiDung/' + username, data, {
       withCredentials: true,
     });
   }
 
-  public deleteUser(id: number) {
-    return this.http.delete<any>('http://localhost:4040/nguoiDung/' + id, {
+  public deleteUser(username: string) {
+    return this.http.delete<any>('http://localhost:4040/nguoiDung/' + username, {
       withCredentials: true,
     });
   }
@@ -104,8 +104,8 @@ export class ApiService {
     });
   }
 
-  getQuanHuyen() {
-    return this.http.get<any>('http://localhost:4040/huyenQuan?pageSize=99', {
+  getHuyenQuan() {
+    return this.http.get<any>('http://localhost:4040/huyenQuan/', {
       withCredentials: true,
     });
   }

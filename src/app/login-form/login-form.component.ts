@@ -6,6 +6,7 @@ import { ApiService } from '../service/api.service';
 
 import { User } from '../models/users/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../service/auth.service';
 
 declare var require: any;
 @Component({
@@ -38,13 +39,14 @@ export class LoginFormComponent implements OnInit {
     private router: Router,
     private api: ApiService,
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
     this.userService.userLoginedCurrent.subscribe(user => this.userLogined = user);
     this.userService.checkLoginCurrent.subscribe(check => this.checkLogin = check)
-    this.getAllUser();
+    this.userService.listUserCurrent.subscribe(listUser => this.listUser = listUser);
 
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.maxLength(12), Validators.required]],
@@ -58,15 +60,6 @@ export class LoginFormComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
-  }
-
-  private getAllUser() {
-    this.api.getUser().subscribe({
-      next: (res) => {
-        this.listUser = res.data;
-      },
-      error: (err) => { },
-    });
   }
 
   // Username and password input
@@ -85,7 +78,7 @@ export class LoginFormComponent implements OnInit {
       if (this.passwordLogin === this.listUser[index].password) {
         this.checkLogin = true;
         this.userService.changeStatus(this.checkLogin);
-        this.userService.changeListUser(this.listUser[index]);
+        this.userService.changeLoginedUser(this.listUser[index]);
         // Go to listUser screen
         this.userUrl = "/home";
         this.router.navigateByUrl(this.userUrl);
@@ -97,6 +90,18 @@ export class LoginFormComponent implements OnInit {
       // Message error
       this.message = "Username or password is incorrect";
     }
+
+    this.login(this.loginForm.value.username, this.loginForm.value.password);
+  }
+
+  private login(username: string, password: string) {
+    this.auth.login({username: username, password: password}).subscribe({
+      next: () => {
+        this.router.navigate(['']);
+      },
+      error: () => {
+      },
+    });
   }
 
 }
