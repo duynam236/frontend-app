@@ -31,6 +31,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ChungnhanComponent } from './chungnhan/chungnhan.component';
 import { CndialogComponent } from './chungnhan/cndialog/cndialog.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { ManageUserComponent } from './list-user/manage-user/manage-user.component';
 
 const routes: Routes = [
   {
@@ -74,6 +76,8 @@ const routes: Routes = [
     TtdialogComponent,
     ChungnhanComponent,
     CndialogComponent,
+    ListUserComponent,
+    ManageUserComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -18,7 +18,7 @@ export class DialogComponent implements OnInit {
     private dialogRef: MatDialogRef<DialogComponent>
   ) {}
 
-  quanHuyen: any = this.api.getQuanHuyen();
+  quanHuyen: any = this.api.getHuyenQuan();
 
   ngOnInit(): void {
     this.formcoso = this.formbuilder.group({

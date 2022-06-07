@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../service/auth.service';
+import { ApiService } from '../service/api.service';
 
 import { User } from '../models/users/user';
 
@@ -15,26 +16,32 @@ export class HomeComponent implements OnInit {
 
   public users!: User[];
   private checkLogin!: boolean;
-
-  loginUser: any = {
-    username: 'chuyenvien01',
-    password: 'chuyenvien01',
-  };
+  private userLogined!: User;
+  private listUser!: User[];
 
   constructor(
     private route: Router,
     private auth: AuthService,
-    private userService : UserService
+    private userService : UserService,
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
-    this.login();
+    if (this.checkLogin) {
+      this.login();
+    }
     this.userService.checkLoginCurrent.subscribe(check => this.checkLogin = check);
-    console.log(this.checkLogin)
+    this.userService.userLoginedCurrent.subscribe(user => this.userLogined = user);
+    this.userService.listUserCurrent.subscribe(listUser => this.listUser = listUser);
+    
   }
 
   private login() {
-    this.auth.login(this.loginUser).subscribe({
+    const loginUser: any = {
+      username: this.userLogined.username,
+      password: this.userLogined.password,
+    };
+    this.auth.login(loginUser).subscribe({
       next: () => {
         this.route.navigate(['']);
       },

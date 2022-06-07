@@ -1,0 +1,38 @@
+<h1 *ngIf="!editData" mat-dialog-title style="color: red">Thêm Người Dùng</h1>
+<h1 *ngIf="editData" mat-dialog-title style="color: red">Cập Nhật Người Dùng</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formUser">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput placeholder="Username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput placeholder="Password" />
+    </mat-form-field>
+
+    <mat-form-field *ngIf="editData" appearance="outline">
+      <mat-label>{{editData.diaBan.ten}}</mat-label>
+      <mat-select formControlName="tenDiaBan" [placeholder]="editData.diaBan.ten">
+        <mat-option *ngFor="let diaBan of listHuyenQuan" [value]="diaBan.ten">{{ diaBan.ten}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!editData" appearance="outline">
+      <mat-label>Địa bàn</mat-label>
+      <mat-select formControlName="tenDiaBan" placeholder="Địa bàn">
+        <mat-option *ngFor="let diaBan of listHuyenQuan" [value]="diaBan.ten">{{ diaBan.ten}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Đóng</button>
+  <button mat-raised-button color="primary" (click)="addUser()">
+    {{ actionBtn }}
+  </button>
+  <button (click)="show()">AAAAA</button>
+</div>

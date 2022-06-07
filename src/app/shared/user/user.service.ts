@@ -1,3 +1,4 @@
+import { listUser } from './../../models/listUsers/listUser.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
@@ -10,19 +11,23 @@ import { loginedUser } from 'src/app/models/listUser/loginedUser.model';
 })
 export class UserService {
 
+  private listUserSource = new BehaviorSubject(listUser);
+  public listUserCurrent = this.listUserSource.asObservable();
 
+  public changeListUser(listUser: User[]) {
+    this.listUserSource.next(listUser);
+  }
+  
   private userLoginedSource = new BehaviorSubject(loginedUser);
   public userLoginedCurrent = this.userLoginedSource.asObservable();
 
-  // Update listUser for all component
-  public changeListUser(userLogined: User) {
+  public changeLoginedUser(userLogined: User) {
     this.userLoginedSource.next(userLogined);
   }
 
   private checkLoginSource = new BehaviorSubject(false);
   public checkLoginCurrent = this.checkLoginSource.asObservable();
 
-  // Update statusUrl for all component
   public changeStatus(check: boolean) {
     this.checkLoginSource.next(check);
   }

@@ -2,23 +2,22 @@
   <nav class="shift">
     <ul style="flex: 6;">
       <li><a [routerLink]="['/home']">Home</a></li>
-      <li><a [routerLink]="['/coso']" routerLinkActive="router-link-active">Cơ sở</a></li>
-      <li><a href="#">Giấy chứng nhận</a></li>
-      <li><a [routerLink]="['/thanhtra']" routerLinkActive="router-link-active">Thanh tra</a></li>
+      <li><a *ngIf="checkLogin" [routerLink]="['/coso']" routerLinkActive="router-link-active">Cơ sở</a></li>
+      <li><a *ngIf="checkLogin" [routerLink]="['/chungnhan']" routerLinkActive="router-link-active">Giấy chứng nhận</a></li>
+      <li><a *ngIf="checkLogin" [routerLink]="['/thanhtra']" routerLinkActive="router-link-active">Thanh tra</a></li>
     </ul>
     <ul style="flex: 4;" class="ml-right">
       <li *ngIf="checkLogin" class="nav-item dropdown user-icon" dropdown>
         <div dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          <img [src]="'assets/images/user-img/user-default.png'" alt="" class="img-fluid rounded-circle z-depth-0"></div>
+          <img [src]="'assets/images/user-img/user-default.png'" alt="user" class="img-fluid rounded-circle z-depth-0"></div>
         <div style="width: 200px;" *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-          <a style="color: black;" mdbWavesEffect href="#">Tài khoản của tôi</a>
-          <a *ngIf="checkManager" style="color: black;" mdbWavesEffect href="#">Add user</a>
-          <a style="color: black;" mdbWavesEffect href="login">Log out</a>
+          <a *ngIf="checkManager" style="color: black;" mdbWavesEffect (click)="openListUser()">Quản lý tài khoản</a>
+          <a style="color: black;" mdbWavesEffect routerLink="/login" (click)="changeCheckLogin()">Đăng xuất</a>
         </div>
       </li>
       <li *ngIf="!checkLogin" class="nav-item dropdown user-icon" dropdown>
         <div>
-          <button class="new-login" routerLink="/login">
+          <button class="new-login" routerLink="/login" (click)="getListUser()">
             Đăng nhập
           </button>
         </div>
