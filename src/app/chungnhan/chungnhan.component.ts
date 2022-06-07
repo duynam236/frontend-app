@@ -1,3 +1,4 @@
+import { FormExportPDFComponent } from './../shared/component/form-export-pdf/form-export-pdf.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../service/api.service';
@@ -92,5 +93,19 @@ export class ChungnhanComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public exportChungNhan(row: any) {
+    this.cndialog
+      .open(FormExportPDFComponent, {
+        width: '100%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'Update') {
+          this.getAllChungNhan();
+        }
+      });
   }
 }
