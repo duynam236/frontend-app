@@ -29,7 +29,7 @@ export class CndialogComponent implements OnInit {
 
     if (this.editData) {
       this.actionBTN = 'Update';
-      this.chungnhanForm.controls['coSoId'].setValue(this.editData.coSoId);
+      this.chungnhanForm.controls['id'].setValue(this.editData.id);
       this.chungnhanForm.controls['ngayCap'].setValue(this.editData.ngayCap);
       this.chungnhanForm.controls['ngayHetHan'].setValue(
         this.editData.ngayHetHan
